@@ -1,0 +1,43 @@
+﻿@model UsersListWeb.Models.TasksList.TasksListViewModel;
+
+<link rel="stylesheet" href="~/css/task-list.css" asp-append-version="true" />
+
+<h2>Отображение списка задач</h2>
+
+<div> <a asp-controller="Home" asp-action="Index">Возврат на главную страницу</a></div>
+<br />
+<a asp-controller="Tasks" asp-action="CreateTask">Добавление задачи</a>
+
+<div class="text-center">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Айди задачи</th>
+                <th>Заголовок</th>
+                <th>Описание задачи</th>
+                <th>Айди пользователя</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model.Tasks)
+            {
+                <tr>
+                    <td><a asp-controller="Tasks" asp-action="ChangeTask" asp-route-id="@i.Id">@i.Id</a></td>
+                    <td>@i.Subject</td>
+                    <td>@i.Description</td>
+                    <td><a asp-controller="Users" asp-action="ChangeUsersList" asp-route-id="@i.IdUser">@i.IdUser</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        @if (Model.CanBack)
+        {
+            <a class="" href="/TaskList/?page=@(Model.Page - 1)">Назад</a>
+        }
+        @if (Model.CanForward)
+        {
+            <a class="" href="/TaskList/?page=@(Model.Page + 1)">Вперед</a>
+        }
+    </div>
+</div>

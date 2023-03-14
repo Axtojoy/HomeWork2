@@ -1,0 +1,44 @@
+﻿@model UsersListWeb.Models.UsersList.UsersListViewModel;
+
+<link rel="stylesheet" href="~/css/task-list.css" asp-append-version="true" />
+
+<h2>Отображение списка пользователей</h2>
+
+<div> <a asp-controller="Home" asp-action="Index">Возврат на главную страницу</a></div><br />
+<a asp-controller="Users" asp-action="CreateUser">Добавление пользователя</a>
+
+<div class="text-center">
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Email</th>
+            <th>Айди_Задачи</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model.Users)
+        {
+            <tr>
+                <td><a asp-controller="Users" asp-action="ChangeUsersList" asp-route-id="@i.Id">@i.Id</a></td>
+                <td>@i.FirstName</td>
+                <td>@i.LastName</td>
+                <td>@i.Email</td>
+                <td><a asp-controller="Tasks" asp-action="ChangeTask" asp-route-id="@i.IdTask">@i.IdTask</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+    <div>
+        @if (Model.CanBack)
+        {
+             <a class="" href="/UsersList/?page=@(Model.Page - 1)">Назад</a>
+        }
+        @if (Model.CanForward)
+        {
+            <a class="" href="/UsersList/?page=@(Model.Page + 1)">Вперед</a>
+        }
+    </div>
+</div>

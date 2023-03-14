@@ -1,0 +1,39 @@
+﻿@model UsersListWeb.Models.TasksList.TaskCreateViewModel
+
+<link rel="stylesheet" href="~/css/task-list.css" asp-append-version="true" />
+
+
+<h2>Добавление в список задач</h2>
+
+<div> <a asp-controller="Home" asp-action="Index">Возврат на главную страницу</a></div>
+<br />
+
+
+<style>
+    .create-task-form div {
+        margin-bottom: 10px;
+    }
+
+</style>
+
+
+<form method="post" class="create-task-form">
+    <fieldset>
+        <div class="form-element">
+            <label for="Subject">Наименование задачи</label>
+            <textarea cols="40" rows="1" name="Subject" value=""></textarea>
+        </div>
+        <div class="form-element">
+            <label for="Description">Описание</label>
+            <textarea cols="40" rows="1" name="Description" value=""></textarea>
+        </div>
+        @*<div class="form-element">
+            <label for="IdUser">Айди пользователя</label>
+            <textarea cols="40" rows="1" name="IdUser" value=""></textarea>
+        </div>*@
+        <div>
+            <label>Cоздание</label>
+            <input type="submit" value="Submit" class="submit" />
+        </div>
+    </fieldset>
+</form>

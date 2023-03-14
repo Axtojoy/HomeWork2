@@ -1,0 +1,33 @@
+﻿<h2>Добавление пользователя</h2>
+
+<div> <a asp-controller="Home" asp-action="Index">Возврат на главную страницу</a></div>
+<style>
+    .create-task-form div {
+        margin-bottom: 10px;
+    }
+
+</style>
+
+<form method="post" class="create-task-form">
+    <fieldset>
+        <div class="form-element">
+            <label for="FirstName">Имя</label>
+            <textarea cols="40" rows="1" name="FirstName" value=""></textarea>
+        </div>
+        <div class="form-element">
+            <label for="LastName">Фамилия</label>
+            <textarea cols="40" rows="1" name="LastName" value=""></textarea>
+        </div>
+        <div class="form-element">
+            <label for="Email">Email</label>
+            <textarea cols="40" rows="1" name="Email" value=""></textarea>
+        </div>
+        @*<div class="form-element">
+            <label for="IdTask">Айди_Задачи</label>
+            <textarea cols="40" rows="1" name="IdTask" value=""></textarea>
+        </div>*@
+        <div>
+            <input type="submit" value="Добавление" class="submit" />
+        </div>
+    </fieldset>
+</form>

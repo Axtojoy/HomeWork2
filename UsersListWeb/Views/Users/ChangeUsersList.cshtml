@@ -1,0 +1,41 @@
+﻿@model UsersListWeb.Models.UsersList.UserViewModel
+
+
+
+<h2>Редактирование списка пользователей</h2>
+
+<div> <a asp-controller="Home" asp-action="Index">Возврат на главную страницу</a></div><br />
+
+
+<style>
+    .create-task-form div {
+        margin-bottom: 10px;
+    }
+
+</style>
+
+<h1>Человек #@Model.Id</h1>
+<form method="post" class="create-task-form">
+    <fieldset>
+        <div class="form-element">
+            <label for="FirstName">Имя</label>
+            <input cols="40" rows="1" name="FirstName" value="@Model.FirstName"/>
+        </div>
+        <div class="form-element">
+            <label for="LastName">Фамилия</label>
+            <input cols="40" rows="1" name="LastName" value="@Model.LastName"/>
+        </div>
+        <div class="form-element">
+            <label for="Email">Email</label>
+            <input cols="40" rows="1" name="Email" value="@Model.Email" />
+        </div>
+        @*<div class="form-element">
+            <label for="IdTask">Айди_Задачи</label>
+            <input cols="40" rows="1" name="IdTask" value="@Model.IdTask" />
+        </div>*@
+        <div>
+            <label>Save</label>
+            <input type="submit" value="Submit" class="submit" />
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,39 @@
+﻿@model UsersListWeb.Models.TasksList.TaskViewModel
+
+<link rel="stylesheet" href="~/css/task-list.css" asp-append-version="true" />
+
+
+<h2>Редактирование списка задач</h2>
+
+<div> <a asp-controller="Home" asp-action="Index">Возврат на главную страницу</a></div>
+<br />
+
+
+<style>
+    .create-task-form div {
+        margin-bottom: 10px;
+    }
+
+</style>
+
+<h1>Задача #@Model.Id</h1>
+<form method="post" class="create-task-form">
+    <fieldset>
+        <div class="form-element">
+            <label for="Subject">Имя</label>
+            <input cols="40" rows="1" name="Subject" value="@Model.Subject" />
+        </div>
+        <div class="form-element">
+            <label for="Description">Описание</label>
+            <input cols="40" rows="1" name="Description" value="@Model.Description" />
+        </div>
+       @* <div class="form-element">
+            <label for="IdUser">Айди пользователя</label>
+            <input cols="40" rows="1" name="IdUser" value="@Model.IdUser" />
+        </div>*@
+        <div>
+            <label>Сохранить</label>
+            <input type="submit" value="Submit" class="submit" />
+        </div>
+    </fieldset>
+</form>
