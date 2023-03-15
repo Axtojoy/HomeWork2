@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UsersList.DAL.Domain.Users;
 
 namespace UsersListLogic.Models.UsersList
 {
@@ -12,5 +13,6 @@ namespace UsersListLogic.Models.UsersList
         public string Email { get; set; }
 
         //public int IdTask { get; set; }
+
     }
 }

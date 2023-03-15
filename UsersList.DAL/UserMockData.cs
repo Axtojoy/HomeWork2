@@ -19,7 +19,7 @@ namespace UsersList.DAL
             List<string> lastName = new List<string>() { "Маслов", "Ушколов", "Урусов", "Крутов", " Кузахметов", "Лаврешин", "Земсков" };
             List<string> email = new List<string>() { "dsad@yandex.ru", "blavbl@mail.ru", "gasfsafda@mail.ru", "ihdasdasdh@mail.ru", "dasdas@gmail.com" };
             Random rnd = new Random();
-            for (int i = 1; i < 76; i++) 
+            for (int i = 1; i <= 76; i++) 
             {
                 int randFirstName = rnd.Next(firstName.Count);
                 int randLastName = rnd.Next(lastName.Count);
