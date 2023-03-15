@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UsersList.DAL.Domain.Users;
 using UsersList.Logic.Models.TasksList;
 using UsersListLogic;
 using UsersListLogic.Models.UsersList;
@@ -31,7 +32,7 @@ namespace UsersListWeb.Controllers
 
             });
 
-            return View();
+            return RedirectToAction("CreateUser", "Users", new { id = userId });
         }
 
         [HttpGet]

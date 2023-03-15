@@ -37,7 +37,7 @@ namespace UsersListWeb.Controllers
 
             });
 
-            return View();
+            return  RedirectToAction("CreateTask", "Tasks", new { id = userId }); ;
         }
         
 
