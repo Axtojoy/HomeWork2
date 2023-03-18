@@ -34,7 +34,7 @@ namespace UsersListWeb.Controllers
 
             });
 
-           return RedirectToAction("ReviewTasksList", "TaskList");
+            return RedirectToAction("ReviewTasksList", "TaskList");
         }
 
         [HttpGet]
