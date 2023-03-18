@@ -42,11 +42,6 @@ namespace UsersList.DAL.Postgree
             return task;
         }
 
-        public ICollection<Tasks> Get(Func<Tasks, bool> where, int skip, int take)
-        {
-            throw new NotImplementedException();
-        }
-
         public int GetCount()
         {
             var count = _connection.Query("SELECT * FROM public.\"Tasks\"").Count();

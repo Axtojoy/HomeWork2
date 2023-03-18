@@ -36,11 +36,6 @@ namespace UsersList.DAL.Postgree
             return user;
         }
 
-        public ICollection<Users> Get(Func<Users, bool> where, int skip, int take)
-        {
-            throw new NotImplementedException();
-        }
-
         public int GetCount()
         {
             var count = _connection.Query("SELECT * FROM public.\"Users\"").Count();
