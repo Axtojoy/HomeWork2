@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\2023-03-18-0000_CreateUsersAndTasks.sql" />
+    <None Remove="Scripts\2023-03-18-0001_CreateUsersList.sql" />
+    <None Remove="Scripts\2023-03-18-0002_CreateTasksList.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\2023-03-18-0000_CreateUsersAndTasks.sql" />
+    <EmbeddedResource Include="Scripts\2023-03-18-0001_CreateUsersList.sql" />
+    <EmbeddedResource Include="Scripts\2023-03-18-0002_CreateTasksList.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dbup" Version="5.0.8" />
+    <PackageReference Include="dbup-postgresql" Version="5.0.8" />
+    <PackageReference Include="Npgsql" Version="7.0.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
+  </ItemGroup>
+
+</Project>

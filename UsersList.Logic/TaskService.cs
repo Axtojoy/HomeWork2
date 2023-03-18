@@ -27,7 +27,7 @@ namespace UsersListLogic
             {
                 Id = task.Id,
                 Subject = task.Subject,
-                IdUser = task.IdUser,
+                IdUser = task.UserId,
                 Description = task.Description
             };
         }
@@ -40,7 +40,7 @@ namespace UsersListLogic
                 //IdUser = taskCreate.IdUser
             };
 
-            var task = _taskRepository.Save(newTask);
+            var task = _taskRepository.Create(newTask);
 
             return task.Id;
         }
@@ -49,12 +49,12 @@ namespace UsersListLogic
             var newTask = new Tasks()
             {
                 Id = taskUpdate.Id,
-                IdUser = taskUpdate.Id,
+                UserId = taskUpdate.Id,
                 Description = taskUpdate.Description,
                 Subject = taskUpdate.Subject
             };
 
-            var task = _taskRepository.Save(newTask);
+            var task = _taskRepository.Update(newTask);
 
             return task.Id;
 

@@ -4,17 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UsersList.DAL.Domain.Users;
+using UsersList.DAL.Mock.Data;
 using UsersList.DAL.Repositories.Abstact;
 
-namespace UsersList.DAL.Repositories
+namespace UsersList.DAL.Mock
 {
-   public class UsersRepository: IUserRepostitory, IRepostitory<Users>
+    public class UsersMockRepository : IUserRepostitory, IRepostitory<Users>
     {
         private UserMockData _userMockData;
-        public UsersRepository(UserMockData userMockData) 
+        public UsersMockRepository(UserMockData userMockData)
         {
             _userMockData = userMockData;
-           
+
+        }
+
+        public Users Create(Users item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            var user = _userMockData.Users.FirstOrDefault(x => x.Id == id);
+            _userMockData.Users.Remove(user);
         }
         public Users Get(int id)
         {
@@ -36,6 +48,11 @@ namespace UsersList.DAL.Repositories
                 .ToList();
         }
 
+        public ICollection<Users> Get(string search, int page, int take)
+        {
+            throw new NotImplementedException();
+        }
+
         public int GetCount(Func<Users, bool> where)
         {
             return _userMockData
@@ -44,12 +61,18 @@ namespace UsersList.DAL.Repositories
                 .Count();
         }
 
+
+        public int GetCount()
+        {
+            throw new NotImplementedException();
+        }
+
         public Users Save(Users item)
         {
             if (item.Id <= 0)
             {
                 item.Id = _userMockData.Users.Last().Id + 1;
-                item.IdTask = _userMockData.Users.Last().IdTask + 1;
+                item.TaskId = _userMockData.Users.Last().TaskId + 1;
                 _userMockData.Users.Add(item);
                 return item;
             }
@@ -58,8 +81,18 @@ namespace UsersList.DAL.Repositories
             user.FirstName = item.FirstName;
             user.LastName = item.LastName;
             user.Email = item.Email;
-            user.IdTask = item.IdTask;
+            user.TaskId = item.TaskId;
             return user;
+        }
+
+        public void Update(Users item)
+        {
+            throw new NotImplementedException();
+        }
+
+        Users IRepostitory<Users>.Update(Users item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

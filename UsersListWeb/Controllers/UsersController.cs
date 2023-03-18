@@ -9,10 +9,12 @@ namespace UsersListWeb.Controllers
     public class UsersController : Controller
     {
         private readonly UserService _userService;
+        private readonly TaskService _taskService;
 
-        public UsersController(UserService userService)
+        public UsersController(UserService userService, TaskService taskService)
         {
             _userService = userService;
+            _taskService = taskService;
         }
         public IActionResult Index()
         {
@@ -25,9 +27,9 @@ namespace UsersListWeb.Controllers
 
 
         [HttpPost]
-        public IActionResult CreateUser(UsersListCreateViewModel user) 
+        public IActionResult CreateUser(UserCreateViewModel user) 
         {
-            var userId = _userService.Create(new UsersListCreateDTO()
+            _userService.Create(new UsersListCreateDTO()
             {
                 FirstName = user.FirstName,
                 LastName = user.LastName,
@@ -36,8 +38,9 @@ namespace UsersListWeb.Controllers
                 
 
             });
-
-            return  RedirectToAction("CreateTask", "Tasks", new { id = userId }); ;
+           
+            return RedirectToAction("ReviewUsersList", "UsersList");
+            
         }
         
 
@@ -50,7 +53,7 @@ namespace UsersListWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult ChangeUsersList(UsersListChangeViewModel user)
+        public IActionResult ChangeUsersList(UsersChangeViewModel user)
         {
             var userId = _userService.Update(new UsersListChangeDTO()
             {

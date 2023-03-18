@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UsersList.DAL.Repositories.Abstact;
 using UsersList.DAL.Repositories;
 using UsersList.Logic.Models.UsersList;
+using UsersList.DAL.Postgree;
 
 namespace UsersListLogic
 {
@@ -25,7 +26,7 @@ namespace UsersListLogic
                 Skip = skip,
                 Take = take
             };
-            var count = _usersRepository.GetCount(x => true);
+            var count = _usersRepository.GetCount();
             result.TotalCount = count;
 
             if (skip > count)
@@ -35,14 +36,14 @@ namespace UsersListLogic
             }
 
             result.Users = _usersRepository
-                .Get(x => true, skip, take)
+                .Get(x=> true, skip, take)
                 .Select(x => new UserDTO()
                 {
                     Id = x.Id,
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     Email = x.Email,
-                    IdTask =x.IdTask
+                    IdTask =x.TaskId
                 }).ToList();
 
             return result;

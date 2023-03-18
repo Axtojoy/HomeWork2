@@ -14,6 +14,6 @@ namespace UsersList.DAL.Domain.Tasks
 
         public string Description { get; set; }
 
-        public int IdUser { get; set; }
+        public int UserId { get; set; }
     }
 }

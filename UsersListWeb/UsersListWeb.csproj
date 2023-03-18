@@ -4,14 +4,21 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>2ec1bd37-cf0c-4b8b-b8c2-a3820ad71890</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\UsersList.Logic\UsersList.Logic.csproj" />
+    <ProjectReference Include="..\UsersListWeb.PostgresMigrate\UsersList.PostgresMigrate.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Views\UsersList\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="7.0.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
   </ItemGroup>
 
 </Project>

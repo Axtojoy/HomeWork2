@@ -1,25 +1,44 @@
-using UsersList.DAL;
-using UsersList.DAL.Repositories;
+using UsersList.DAL.Mock;
+using UsersList.DAL.Mock.Data;
+using UsersList.DAL.Postgree;
 using UsersList.DAL.Repositories.Abstact;
 using UsersListLogic;
+using UsersListWeb.PostgresMigrate;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TaskService>();
 
-builder.Services.AddScoped<IUserRepostitory, UsersRepository>();
-builder.Services.AddScoped<ITaskRepostitory, TasksRepository>();
 
 builder.Services.AddScoped<UsersListService>();
 builder.Services.AddScoped<TaskListService>();
 
-builder.Services.AddSingleton<UserMockData>();
-builder.Services.AddSingleton<TasksMockData>();
+
+var dbType = builder.Configuration["DbConfig:Type"];
+switch (dbType)
+{
+    case "Postgres":
+        var connectionString = builder.Configuration.GetConnectionString("NpgsqlConnectionStrings");
+        PostgresMigrator.Migrate(connectionString);
+        builder.Services.AddScoped<ITaskRepostitory, TaskPostgreRepository>(x => new TaskPostgreRepository(connectionString));
+        builder.Services.AddScoped<IUserRepostitory, UserPostgreRepository>(x => new UserPostgreRepository(connectionString));
+        break;
+    case "Mock":
+
+        builder.Services.AddScoped<IUserRepostitory, UsersMockRepository>();
+        builder.Services.AddScoped<ITaskRepostitory, TasksMockRepository>();
+
+
+        builder.Services.AddSingleton<UserMockData>();
+        builder.Services.AddSingleton<TasksMockData>();
+        break;
+}
+
+
 
 var app = builder.Build();
 
