@@ -1,7 +1,7 @@
-using UsersList.DAL;
 using UsersList.DAL.Repositories.Abstact;
-using UsersList.DAL.Repositories;
 using UsersListLogic;
+using UsersList.DAL.Mock.Data;
+using UsersList.DAL.Mock;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<TaskService>();
 
-builder.Services.AddScoped<IUserRepostitory, UsersRepository>();
-builder.Services.AddScoped<ITaskRepostitory, TasksRepository>();
+builder.Services.AddScoped<IUserRepostitory, UsersMockRepository>();
+builder.Services.AddScoped<ITaskRepostitory, TasksMockRepository>();
 
 builder.Services.AddScoped<UsersListService>();
 builder.Services.AddScoped<TaskListService>();

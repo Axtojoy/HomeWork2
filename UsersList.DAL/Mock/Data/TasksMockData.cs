@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UsersList.DAL.Domain.Tasks;
 
-namespace UsersList.DAL
+namespace UsersList.DAL.Mock.Data
 {
     public class TasksMockData
     {
@@ -18,15 +18,15 @@ namespace UsersList.DAL
             _userMockData = userMockData;
             _tasks = new List<Tasks>();
             Random rnd = new Random();
-            for(int i = 1; i <= 76; i++)
+            for (int i = 1; i <= 76; i++)
             {
                 _tasks.Add(new Tasks()
                 {
                     Id = i,
                     Subject = $"Task {i}",
-                    IdUser = i, 
+                    UserId = i,
                     Description = $"Description of task {i}"
-                    
+
                 });
             }
         }

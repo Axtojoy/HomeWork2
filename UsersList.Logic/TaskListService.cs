@@ -26,7 +26,7 @@ namespace UsersListLogic
                 Take = take
             };
 
-            var count = _taskRepository.GetCount(x => true);
+            var count = _taskRepository.GetCount();
             result.TotalCount = count;
 
             if (skip > count)
@@ -41,7 +41,7 @@ namespace UsersListLogic
                 {
                     Id = x.Id,
                     Subject = x.Subject,
-                    IdUser = x.IdUser,
+                    IdUser = x.UserId,
                     Description = x.Description
                 }).ToList();
 

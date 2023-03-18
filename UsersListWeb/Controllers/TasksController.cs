@@ -11,10 +11,12 @@ namespace UsersListWeb.Controllers
     public class TasksController : Controller
     {
         private readonly TaskService _taskService;
+        private readonly UserService _userService;
 
-        public TasksController(TaskService taskService)
+        public TasksController(TaskService taskService, UserService userService)
         {
             _taskService = taskService;
+            _userService = userService;
         }
         public IActionResult CreateTask()
         {
@@ -24,7 +26,7 @@ namespace UsersListWeb.Controllers
         [HttpPost]
         public IActionResult CreateTask(TaskCreateViewModel task)
         {
-            var userId = _taskService.Create(new TaskCreateDTO()
+            _taskService.Create(new TaskCreateDTO()
             {
                 Description = task.Description,
                 Subject = task.Subject,
@@ -32,7 +34,7 @@ namespace UsersListWeb.Controllers
 
             });
 
-            return RedirectToAction("CreateUser", "Users", new { id = userId });
+           return RedirectToAction("ReviewTasksList", "TaskList");
         }
 
         [HttpGet]

@@ -13,6 +13,6 @@ namespace UsersList.DAL.Domain.Users
         public string LastName { get; set; }
         public string Email { get; set; }
 
-        public int IdTask { get; set; }
+        public int TaskId { get; set; }
     }
 }

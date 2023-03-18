@@ -25,7 +25,7 @@ namespace UsersListLogic
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                IdTask = user.IdTask,
+                IdTask = user.TaskId,
                 
             };
         }
@@ -38,7 +38,7 @@ namespace UsersListLogic
                 Email = listCreateDTO.Email,
                 //IdTask = listCreateDTO.IdTask
             };
-            var users = _userRepository.Save(newUserList);
+            var users = _userRepository.Create(newUserList);
             return users.Id;
         }
         public object Update(UsersListChangeDTO userChange)
@@ -50,10 +50,10 @@ namespace UsersListLogic
                 FirstName = userChange.FirstName,
                 LastName = userChange.LastName,
                 Email = userChange.Email,
-                IdTask = userChange.Id
+                TaskId = userChange.Id
                 
             };
-            var user = _userRepository.Save(newUserList);
+            var user = _userRepository.Update(newUserList);
 
             return user.Id;
         }

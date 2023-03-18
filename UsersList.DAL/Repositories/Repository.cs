@@ -9,6 +9,11 @@ namespace UsersList.DAL.Repositories
 {
     public abstract class Repository<T> : IRepostitory<T>
     {
+        public T Create(T item)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -34,7 +39,18 @@ namespace UsersList.DAL.Repositories
             throw new NotImplementedException();
         }
 
+        public int GetCount()
+        {
+            throw new NotImplementedException();
+        }
+
         public T Save(T item)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public T Update(T item)
         {
             throw new NotImplementedException();
         }

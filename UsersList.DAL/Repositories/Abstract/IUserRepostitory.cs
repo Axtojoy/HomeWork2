@@ -9,6 +9,6 @@ namespace UsersList.DAL.Repositories.Abstact
 {
     public interface IUserRepostitory: IRepostitory<T.Users>
     {
-
+        
     }
 }
