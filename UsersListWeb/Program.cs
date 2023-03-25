@@ -1,9 +1,12 @@
-using UsersList.DAL.Mock;
+using UsersList.Domain.Mock;
 using UsersList.DAL.Mock.Data;
-using UsersList.DAL.Postgree;
-using UsersList.DAL.Repositories.Abstact;
+using UsersList.Domain.Postgree;
+using UsersList.Domain.Repositories.Abstact;
 using UsersListLogic;
 using UsersListWeb.PostgresMigrate;
+using Microsoft.EntityFrameworkCore;
+using UsersList.DAL.EF.Repositories;
+using UsersList.DAL.EF;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +25,7 @@ var dbType = builder.Configuration["DbConfig:Type"];
 switch (dbType)
 {
     case "Postgres":
-        var connectionString = builder.Configuration.GetConnectionString("NpgsqlConnectionStrings");
+        var connectionString = builder.Configuration.GetConnectionString("NpgsqlConnectionString");
         PostgresMigrator.Migrate(connectionString);
         builder.Services.AddScoped<ITaskRepostitory, TaskPostgreRepository>(x => new TaskPostgreRepository(connectionString));
         builder.Services.AddScoped<IUserRepostitory, UserPostgreRepository>(x => new UserPostgreRepository(connectionString));
@@ -36,6 +39,18 @@ switch (dbType)
         builder.Services.AddSingleton<UserMockData>();
         builder.Services.AddSingleton<TasksMockData>();
         break;
+    case "EF":
+        var connectionStringEF = builder.Configuration.GetConnectionString("NpgsqlConnectionString");
+        PostgresMigrator.Migrate(connectionStringEF);
+
+        builder.Services.AddDbContext<PostgreeContext>(
+            options => options.UseNpgsql(connectionStringEF));
+
+
+        builder.Services.AddScoped<ITaskRepostitory, TaskEFPostgreeRepository>();
+        builder.Services.AddScoped<IUserRepostitory, UserEFPostgreeRepository>();
+        break;
+
 }
 
 

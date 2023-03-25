@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UsersList.DAL.Domain.Tasks;
-using UsersList.DAL.Domain.Users;
+using UsersList.Domain.Models.Tasks;
+using UsersList.Domain.Models.Users;
+using UsersList.Domain.Repositories.Abstact;
 using UsersList.DAL.Mock.Data;
-using UsersList.DAL.Repositories.Abstact;
 
-namespace UsersList.DAL.Mock
+namespace UsersList.Domain.Mock
 {
     public class TasksMockRepository : ITaskRepostitory, IRepostitory<Tasks>
     {
@@ -76,7 +76,7 @@ namespace UsersList.DAL.Mock
             if (item.Id <= 0)
             {
                 item.Id = _taskMockData.Tasks.Last().Id + 1;
-                item.UserId = _taskMockData.Tasks.Last().UserId + 1;
+                //item.UserId = _taskMockData.Tasks.Last().UserId + 1;
                 _taskMockData.Tasks.Add(item);
                 return item;
             }
@@ -84,7 +84,7 @@ namespace UsersList.DAL.Mock
             var task = _taskMockData.Tasks.SingleOrDefault(x => x.Id == item.Id);
             task.Subject = item.Subject;
             task.Description = item.Description;
-            task.UserId = item.UserId;
+            //task.UserId = item.UserId;
 
             return task;
         }
@@ -94,9 +94,5 @@ namespace UsersList.DAL.Mock
             throw new NotImplementedException();
         }
 
-        Tasks IRepostitory<Tasks>.Update(Tasks item)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

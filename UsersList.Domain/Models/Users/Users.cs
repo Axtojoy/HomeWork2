@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UsersList.DAL.Domain.Users
+namespace UsersList.Domain.Models.Users
 {
     public class Users
     {

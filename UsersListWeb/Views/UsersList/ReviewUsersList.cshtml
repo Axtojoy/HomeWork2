@@ -22,7 +22,8 @@
         @foreach(var i in Model.Users)
         {
             <tr>
-                <td><a asp-controller="Users" asp-action="ChangeUsersList" asp-route-id="@i.Id">@i.Id</a></td>
+                <td><a asp-controller="Users" asp-action="ChangeUsersList" asp-route-id="@i.Id">@i.Id</a> ||
+                    <a asp-controller="Users" asp-action="DeleteUsersList" asp-route-id="@i.Id">Удаление</a></td>
                 <td>@i.FirstName</td>
                 <td>@i.LastName</td>
                 <td>@i.Email</td>

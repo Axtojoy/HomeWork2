@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using UsersList.DAL.Domain.Users;
+using UsersList.Domain.Models.Users;
 using UsersList.Logic.Models.TasksList;
 using UsersListLogic;
 using UsersListLogic.Models.UsersList;
@@ -30,6 +30,8 @@ namespace UsersListWeb.Controllers
             {
                 Description = task.Description,
                 Subject = task.Subject,
+                DeadlineDate = task.DeadlineDate,
+                CreatedDate = DateTime.Now
                 //IdUser = task.IdUser
 
             });
@@ -53,9 +55,11 @@ namespace UsersListWeb.Controllers
                 Id = task.Id,
                 Description = task.Description,
                 Subject = task.Subject,
-                IdUser = task.IdUser
+                IdUser = task.IdUser,
+                DeadlineDate = task.DeadlineDate,
+                CreatedDate = DateTime.Now
             });
-            return RedirectToAction("ChangeTask", new { Id = taskId });
+            return RedirectToAction("ReviewTasksList", "TaskList");
         }
 
     }

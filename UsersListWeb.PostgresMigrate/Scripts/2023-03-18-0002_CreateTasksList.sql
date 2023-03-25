@@ -1,11 +1,11 @@
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('В чем смысл жизни?', 'Задача для первоклассников')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('Можно ли доказать или опровергнуть существования бога?', 'Задача для детсада')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('Будет ли разумное существо радо бессмертию?', 'Задача для подговительных курсах детсада')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('Определение разумного существа', 'Задача для яслей')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('Как преодолеть Великую Тишину', 'Задача для новорожденных')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('Семь смертных грехов мешают счастью человека?', 'Задача для эмбрионов')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('Можно ли постичь абсолютного счастья, не познав горя', 'Задача для эмбрионов')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('Доказательство сущестования паралельных миров или их отсутствие', 'Задача для эмбрионов')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('1+1', 'Задача для эмбрионов')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('Доживет ли человечество до 2200 года от Рождества Xристова', 'Задача для эмбрионов')
-INSERT INTO public."Tasks"("Subject", "Description")VALUES('Почему?', 'Задача для эмбрионов')
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('Р’ С‡РµРј СЃРјС‹СЃР» Р¶РёР·РЅРё?', 'Р—Р°РґР°С‡Р° РґР»СЏ РїРµСЂРІРѕРєР»Р°СЃСЃРЅРёРєРѕРІ', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 1);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('РњРѕР¶РЅРѕ Р»Рё РґРѕРєР°Р·Р°С‚СЊ РёР»Рё РѕРїСЂРѕРІРµСЂРіРЅСѓС‚СЊ СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ Р±РѕРіР°?', 'Р—Р°РґР°С‡Р° РґР»СЏ РґРµС‚СЃР°РґР°', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 2);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('Р‘СѓРґРµС‚ Р»Рё СЂР°Р·СѓРјРЅРѕРµ СЃСѓС‰РµСЃС‚РІРѕ СЂР°РґРѕ Р±РµСЃСЃРјРµСЂС‚РёСЋ?', 'Р—Р°РґР°С‡Р° РґР»СЏ РїРѕРґРіРѕС‚РѕРІРёС‚РµР»СЊРЅС‹С… РєСѓСЂСЃР°С… РґРµС‚СЃР°РґР°', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 3);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('РћРїСЂРµРґРµР»РµРЅРёРµ СЂР°Р·СѓРјРЅРѕРіРѕ СЃСѓС‰РµСЃС‚РІР°', 'Р—Р°РґР°С‡Р° РґР»СЏ СЏСЃР»РµР№', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 4);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('РљР°Рє РїСЂРµРѕРґРѕР»РµС‚СЊ Р’РµР»РёРєСѓСЋ РўРёС€РёРЅСѓ', 'Р—Р°РґР°С‡Р° РґР»СЏ РЅРѕРІРѕСЂРѕР¶РґРµРЅРЅС‹С…', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 5);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('РЎРµРјСЊ СЃРјРµСЂС‚РЅС‹С… РіСЂРµС…РѕРІ РјРµС€Р°СЋС‚ СЃС‡Р°СЃС‚СЊСЋ С‡РµР»РѕРІРµРєР°?', 'Р—Р°РґР°С‡Р° РґР»СЏ СЌРјР±СЂРёРѕРЅРѕРІ', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 6);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('РњРѕР¶РЅРѕ Р»Рё РїРѕСЃС‚РёС‡СЊ Р°Р±СЃРѕР»СЋС‚РЅРѕРіРѕ СЃС‡Р°СЃС‚СЊСЏ, РЅРµ РїРѕР·РЅР°РІ РіРѕСЂСЏ', 'Р—Р°РґР°С‡Р° РґР»СЏ СЌРјР±СЂРёРѕРЅРѕРІ', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 7);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('Р”РѕРєР°Р·Р°С‚РµР»СЊСЃС‚РІРѕ СЃСѓС‰РµСЃС‚РѕРІР°РЅРёСЏ РїР°СЂР°Р»РµР»СЊРЅС‹С… РјРёСЂРѕРІ РёР»Рё РёС… РѕС‚СЃСѓС‚СЃС‚РІРёРµ', 'Р—Р°РґР°С‡Р° РґР»СЏ СЌРјР±СЂРёРѕРЅРѕРІ', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 8);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('1+1', 'Р—Р°РґР°С‡Р° РґР»СЏ СЌРјР±СЂРёРѕРЅРѕРІ', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 9);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('Р”РѕР¶РёРІРµС‚ Р»Рё С‡РµР»РѕРІРµС‡РµСЃС‚РІРѕ РґРѕ 2200 РіРѕРґР° РѕС‚ Р РѕР¶РґРµСЃС‚РІР° XСЂРёСЃС‚РѕРІР°', 'Р—Р°РґР°С‡Р° РґР»СЏ СЌРјР±СЂРёРѕРЅРѕРІ', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 10);
+INSERT INTO public."Tasks"("Subject", "Description", "CreatedDate", "DeadlineDate", "UserId")VALUES('РџРѕС‡РµРјСѓ?', 'Р—Р°РґР°С‡Р° РґР»СЏ СЌРјР±СЂРёРѕРЅРѕРІ', '2023-03-24 20:16:16.446', '2023-03-27 20:16:16.446', 11);

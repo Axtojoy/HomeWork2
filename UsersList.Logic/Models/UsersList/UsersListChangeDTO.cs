@@ -10,6 +10,6 @@ namespace UsersListLogic.Models.UsersList
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public int IdTask { get; set; }
+        public int TaskId { get; set; }
     }
 }

@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UsersList.DAL.Domain.Tasks;
-using UsersList.DAL.Domain.Users;
-using UsersList.DAL.Repositories;
-using UsersList.DAL.Repositories.Abstact;
+using UsersList.Domain.Models.Tasks;
+using UsersList.Domain.Models.Users;
+using UsersList.Domain.Repositories;
+using UsersList.Domain.Repositories.Abstact;
 
-namespace UsersList.DAL.Postgree
+namespace UsersList.Domain.Postgree
 {
     public class UserPostgreRepository : IUserRepostitory, IRepostitory<Users>
     {
@@ -36,15 +36,23 @@ namespace UsersList.DAL.Postgree
             return user;
         }
 
+        public ICollection<Users> Get(string search, int skip, int take)
+        {
+            var searchQuery = string.IsNullOrWhiteSpace(search) ? "" : $"WHERE \"Name\" ilike 'search%' or \"Surname\" ilike 'search%'";
+
+            var users = _connection.Query<Users>($"SELECT * FROM public.\"Users\" {searchQuery} OFFSET {skip} LIMIT {take}").ToList();
+            return users ?? new List<Users>();
+        }
+
         public int GetCount()
         {
             var count = _connection.Query("SELECT * FROM public.\"Users\"").Count();
             return count;
         }
-        public Users Update(Users item)
+        public void Update(Users item)
         {
             _connection.Execute("UPDATE public.\"Users\" SET \"FirstName\" = @FirstName, \"LastName\"  = @LastName, \"Email\" = @Email WHERE Id = @Id", new { FirstName = item.FirstName, LastName = item.LastName, Email = item.Email });
-            return item;
+            
 
         }
     }

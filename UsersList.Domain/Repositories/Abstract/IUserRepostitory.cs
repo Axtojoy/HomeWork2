@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using T = UsersList.DAL.Domain.Users;
+using T = UsersList.Domain.Models.Users;
 
-namespace UsersList.DAL.Repositories.Abstact
+namespace UsersList.Domain.Repositories.Abstact
 {
     public interface IUserRepostitory: IRepostitory<T.Users>
     {
-        
+        ICollection<T.Users> Get(string search, int skip, int take);
     }
 }

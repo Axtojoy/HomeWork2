@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using UsersList.DAL.Repositories.Abstact;
+using UsersList.Domain.Repositories.Abstact;
 using UsersListLogic.Models;
 using UsersListLogic.Models.UsersList;
 using UsersList.Logic.Models.TasksList;
@@ -36,13 +36,16 @@ namespace UsersListLogic
             }
 
             result.Tasks = _taskRepository
-                .Get(x => true, skip, take)
+                .Get(string.Empty, skip, take)
                 .Select(x => new TaskDTO()
                 {
                     Id = x.Id,
                     Subject = x.Subject,
-                    IdUser = x.UserId,
-                    Description = x.Description
+                    UserId = (int)x.UserId,
+                    Description = x.Description,
+                    CreatedDate = x.CreatedDate,
+                    DeadlineDate = x.DeadlineDate
+                    
                 }).ToList();
 
             return result;

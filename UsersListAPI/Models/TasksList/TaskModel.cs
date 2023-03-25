@@ -14,14 +14,14 @@ namespace UsersListWeb.Models.TasksList
 
         public string Description { get; set; }
 
-        public int IdUser { get; set; }
+        public int UserId { get; set; }
 
         public TaskModel(TaskDTO user)
         {
             Id = user.Id;
             Subject = user.Subject;
             Description = user.Description;
-            IdUser = user.IdUser;
+            UserId = user.UserId;
         }
     }
 }

@@ -6,12 +6,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UsersList.DAL.Domain.Tasks;
-using UsersList.DAL.Domain.Users;
+using UsersList.Domain.Models.Tasks;
+using UsersList.Domain.Models.Users;
 using UsersList.DAL.Mock.Data;
-using UsersList.DAL.Repositories.Abstact;
+using UsersList.Domain.Repositories.Abstact;
 
-namespace UsersList.DAL.Postgree
+namespace UsersList.Domain.Postgree
 {
     public class TaskPostgreRepository : ITaskRepostitory, IRepostitory<Tasks>
     {
@@ -24,8 +24,8 @@ namespace UsersList.DAL.Postgree
         public Tasks Create(Tasks item)
         {
             
-            _connection.Execute("INSERT INTO public.\"Tasks\" (\"Description\", \"Subject\")" +
-                "VALUES(@Description, @Subject)", new { Description = item.Description, Subject = item.Subject });
+            _connection.Execute("INSERT INTO public.\"Tasks\" (\"Description\", \"Subject\", \"DeadlineDate\", \"CreatedDate\", \"UserId\")" +
+                "VALUES(@Description, @Subject, @DeadlineDate, @CreatedDate, @UserId)", new { Description = item.Description, Subject = item.Subject, DeadlineDate = item.DeadlineDate, CreatedDate = item.CreatedDate, UserId = item.UserId });
             return item;
 
             
@@ -42,16 +42,24 @@ namespace UsersList.DAL.Postgree
             return task;
         }
 
+        public ICollection<Tasks> Get(string search, int skip, int take)
+        {
+            var searchQuery = string.IsNullOrWhiteSpace(search) ? "" : $"WHERE \"Subject\" ilike '%search%' or \"Description\" ilike '%search%'";
+
+            var tasks = _connection.Query<Tasks>($"SELECT * FROM public.\"Tasks\" {searchQuery} OFFSET {skip} LIMIT {take}").ToList();
+            return tasks ?? new List<Tasks>();
+        }
+
         public int GetCount()
         {
             var count = _connection.Query("SELECT * FROM public.\"Tasks\"").Count();
             return count;
         }
 
-        public Tasks Update(Tasks item)
+        public void Update(Tasks item)
         {
             _connection.Execute("UPDATE public.\"Tasks\" SET \"Description\" = @Description,  \"Subject\" = @Subject WHERE Id = @Id", new {Description = item.Description, Subject = item.Subject});
-            return item;
+            
 
         }
     }

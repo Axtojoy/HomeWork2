@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UsersList.DAL.Repositories.Abstact;
+using UsersList.Domain.Repositories.Abstact;
 
-namespace UsersList.DAL.Repositories
+namespace UsersList.Domain.Repositories
 {
     public abstract class Repository<T> : IRepostitory<T>
     {
@@ -50,7 +50,7 @@ namespace UsersList.DAL.Repositories
         }
 
 
-        public T Update(T item)
+        public void Update(T item)
         {
             throw new NotImplementedException();
         }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UsersList.DAL.Domain.Tasks
+namespace UsersList.Domain.Models.Tasks
 {
     public class Tasks
     {
@@ -13,6 +14,10 @@ namespace UsersList.DAL.Domain.Tasks
         public string Subject { get; set; }
 
         public string Description { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime DeadlineDate { get; set; }
 
         public int UserId { get; set; }
     }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using UsersList.DAL.Domain.Users;
+using UsersList.Domain.Models.Users;
 
 namespace UsersListLogic.Models.UsersList
 {

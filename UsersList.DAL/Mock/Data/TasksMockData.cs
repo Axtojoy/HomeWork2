@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UsersList.DAL.Domain.Tasks;
+using UsersList.Domain.Models.Tasks;
 
 namespace UsersList.DAL.Mock.Data
 {
@@ -24,7 +24,7 @@ namespace UsersList.DAL.Mock.Data
                 {
                     Id = i,
                     Subject = $"Task {i}",
-                    UserId = i,
+                    //UserId = i,
                     Description = $"Description of task {i}"
 
                 });
