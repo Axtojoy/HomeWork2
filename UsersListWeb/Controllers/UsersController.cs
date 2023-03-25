@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using UsersList.DAL.Domain.Users;
+using UsersList.Domain.Models.Users;
 using UsersListLogic;
 using UsersListLogic.Models.UsersList;
 using UsersListWeb.Models.UsersList;
@@ -42,9 +42,21 @@ namespace UsersListWeb.Controllers
             return RedirectToAction("ReviewUsersList", "UsersList");
             
         }
-        
 
         [HttpGet]
+        public IActionResult DeleteUsersList(int id)
+        {
+            var user = _userService.Get(id);
+            var userModel = new UserViewModel(user);
+            return View(userModel);
+        }
+        [HttpPost]
+        public IActionResult DeleteUsersList(UsersChangeViewModel user)
+        {
+            _userService.Delete(user.Id);
+            return RedirectToAction("ReviewUsersList", "UsersList");
+        }
+            [HttpGet]
         public IActionResult ChangeUsersList(int id)
         {
             var user = _userService.Get(id);
@@ -61,9 +73,9 @@ namespace UsersListWeb.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
-                IdTask = user.IdTask,
+                TaskId = user.TaskId,
             });
-            return RedirectToAction("ChangeUsersList", new { Id = userId });
+            return RedirectToAction("ReviewUsersList", "UsersList");
         }
     }
 }

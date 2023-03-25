@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using UsersList.DAL.Domain.Users;
-using UsersList.DAL.Repositories.Abstact;
+using UsersList.Domain.Models.Users;
+using UsersList.Domain.Repositories.Abstact;
 using UsersList.Logic.Models.UsersList;
 using UsersListLogic.Models;
 using UsersListLogic.Models.UsersList;
@@ -50,12 +50,19 @@ namespace UsersListLogic
                 FirstName = userChange.FirstName,
                 LastName = userChange.LastName,
                 Email = userChange.Email,
-                TaskId = userChange.Id
+                TaskId = userChange.TaskId
                 
             };
-            var user = _userRepository.Update(newUserList);
+             _userRepository.Update(newUserList);
 
-            return user.Id;
+            return userChange;
+        }
+
+        public object Delete(int id)
+        {
+            
+            _userRepository.Delete(id); return id;
+
         }
     }
 }

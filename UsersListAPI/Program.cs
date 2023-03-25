@@ -1,7 +1,7 @@
-using UsersList.DAL.Repositories.Abstact;
+using UsersList.Domain.Repositories.Abstact;
 using UsersListLogic;
 using UsersList.DAL.Mock.Data;
-using UsersList.DAL.Mock;
+using UsersList.Domain.Mock;
 
 var builder = WebApplication.CreateBuilder(args);
 

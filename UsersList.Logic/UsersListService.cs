@@ -4,10 +4,10 @@ using UsersListLogic.Models;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Collections.Generic;
-using UsersList.DAL.Repositories.Abstact;
-using UsersList.DAL.Repositories;
+using UsersList.Domain.Repositories.Abstact;
+using UsersList.Domain.Repositories;
 using UsersList.Logic.Models.UsersList;
-using UsersList.DAL.Postgree;
+using UsersList.Domain.Postgree;
 
 namespace UsersListLogic
 {
@@ -36,14 +36,14 @@ namespace UsersListLogic
             }
 
             result.Users = _usersRepository
-                .Get(x=> true, skip, take)
+                .Get(string.Empty, skip, take)
                 .Select(x => new UserDTO()
                 {
                     Id = x.Id,
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     Email = x.Email,
-                    IdTask =x.TaskId
+                    IdTask = x.TaskId
                 }).ToList();
 
             return result;

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UsersList.DAL.Domain.Users;
+using UsersList.Domain.Models.Users;
 using UsersList.DAL.Mock.Data;
-using UsersList.DAL.Repositories.Abstact;
+using UsersList.Domain.Repositories.Abstact;
 
-namespace UsersList.DAL.Mock
+namespace UsersList.Domain.Mock
 {
     public class UsersMockRepository : IUserRepostitory, IRepostitory<Users>
     {
@@ -90,9 +90,5 @@ namespace UsersList.DAL.Mock
             throw new NotImplementedException();
         }
 
-        Users IRepostitory<Users>.Update(Users item)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

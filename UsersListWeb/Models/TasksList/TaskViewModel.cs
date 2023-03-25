@@ -16,12 +16,18 @@ namespace UsersListWeb.Models.TasksList
 
         public int IdUser { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime DeadlineDate { get; set; }
+
         public TaskViewModel(TaskDTO user)
         {
             Id = user.Id;
             Subject = user.Subject;
             Description = user.Description;
-            IdUser = user.IdUser;
+            IdUser = user.UserId;
+            CreatedDate = user.CreatedDate;
+            DeadlineDate = user.DeadlineDate;
         }
     }
 }

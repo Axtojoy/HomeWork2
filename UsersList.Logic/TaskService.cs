@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Text;
-using UsersList.DAL.Domain.Tasks;
-using UsersList.DAL.Repositories.Abstact;
+using UsersList.Domain.Models.Tasks;
+using UsersList.Domain.Repositories.Abstact;
 using UsersList.Logic.Models.TasksList;
 using UsersList.Logic.Models.UsersList;
 using UsersListLogic.Models;
@@ -27,8 +27,10 @@ namespace UsersListLogic
             {
                 Id = task.Id,
                 Subject = task.Subject,
-                IdUser = task.UserId,
-                Description = task.Description
+                UserId = (int)task.UserId,
+                Description = task.Description,
+                CreatedDate = task.CreatedDate,
+                DeadlineDate = task.DeadlineDate
             };
         }
         public int Create(TaskCreateDTO taskCreate)
@@ -37,6 +39,8 @@ namespace UsersListLogic
             {
                 Description = taskCreate.Description,
                 Subject = taskCreate.Subject,
+                CreatedDate = taskCreate.CreatedDate,
+                DeadlineDate = taskCreate.DeadlineDate
                 //IdUser = taskCreate.IdUser
             };
 
@@ -49,14 +53,17 @@ namespace UsersListLogic
             var newTask = new Tasks()
             {
                 Id = taskUpdate.Id,
-                UserId = taskUpdate.Id,
+                UserId = taskUpdate.IdUser,
                 Description = taskUpdate.Description,
-                Subject = taskUpdate.Subject
+                Subject = taskUpdate.Subject, 
+                CreatedDate = taskUpdate.CreatedDate,
+                DeadlineDate = taskUpdate.DeadlineDate
+
             };
 
-            var task = _taskRepository.Update(newTask);
+             _taskRepository.Update(newTask);
 
-            return task.Id;
+            return taskUpdate;
 
         }
 

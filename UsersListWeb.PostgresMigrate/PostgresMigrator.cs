@@ -1,4 +1,5 @@
 ﻿using DbUp;
+using DbUp.Engine;
 
 namespace UsersListWeb.PostgresMigrate
 {
@@ -9,14 +10,14 @@ namespace UsersListWeb.PostgresMigrate
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
             var upgrader = DeployChanges.To
-            .PostgresqlDatabase(connectionString)
-            .JournalToPostgresqlTable("protection", "__SchemaVersion")
-            .WithScriptsFromFileSystem(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Scripts"))
-            .WithVariable("BODY", "$BODY$")
-            .WithExecutionTimeout(TimeSpan.FromSeconds(5))
-            .Build();
+                   .PostgresqlDatabase(connectionString)
+                   .JournalToPostgresqlTable("protection", "__SchemaVersions")
+                   .WithScriptsFromFileSystem(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Scripts"))
+                   .WithVariable("BODY", "$BODY$")
+                   .WithExecutionTimeout(TimeSpan.FromSeconds(30))
+                   .Build();
 
-            upgrader.GetScriptsToExecute();
+            //upgrader.GetScriptsToExecute();
 
             var result = upgrader.PerformUpgrade();
 

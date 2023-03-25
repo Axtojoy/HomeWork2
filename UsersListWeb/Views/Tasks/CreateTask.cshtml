@@ -27,13 +27,24 @@
             <label for="Description">Описание</label>
             <textarea cols="40" rows="1" name="Description" value=""></textarea>
         </div>
-        @*<div class="form-element">
-            <label for="IdUser">Айди пользователя</label>
-            <textarea cols="40" rows="1" name="IdUser" value=""></textarea>
-        </div>*@
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Календарь</title>
+        </head>
+        <body>
+            @*<form>*@
+                <p>
+                    Выберите дату:
+                <input type="date" name="DeadlineDate" value="@DateTime.Now"
+                           max="@DateTime.Now.AddDays(10)" min="@DateTime.Now">
+                </p>
+            @*</form>*@
+        </body>
+    </html>
         <div>
             <label>Cоздание</label>
-            <input type="submit" value="Submit" class="submit" />
+            <input type="submit" value="Создание" class="submit" />
         </div>
     </fieldset>
 </form>

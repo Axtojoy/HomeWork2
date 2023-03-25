@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,10 @@ namespace UsersList.Logic.Models.TasksList
 
         public string Description { get; set; }
 
-        public int IdUser { get; set; }
+        public int UserId { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime DeadlineDate { get; set; }
     }
 }

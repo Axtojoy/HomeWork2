@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UsersList.DAL.EF\UsersList.DAL.EF.csproj" />
     <ProjectReference Include="..\UsersList.Logic\UsersList.Logic.csproj" />
     <ProjectReference Include="..\UsersListWeb.PostgresMigrate\UsersList.PostgresMigrate.csproj" />
   </ItemGroup>

@@ -12,6 +12,9 @@ namespace UsersList.Logic.Models.TasksList
 
         public string Description { get; set; }
 
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime DeadlineDate { get; set; }
         //public int IdUser { get; set; }
 
     }
